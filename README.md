@@ -1,3 +1,4 @@
 # Java Matrix Calculator using Java 8
 </br>
-# GUI built with FXML
+Java assignment from my Master's Advanced Java module
+GUI built with FXML
