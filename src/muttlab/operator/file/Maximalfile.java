@@ -1,0 +1,54 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package muttlab.operator.file;
+
+import java.io.File;
+import static java.util.Comparator.comparing;
+import java.util.Deque;
+import java.util.List;
+import java.util.Vector;
+import static java.util.stream.Collectors.toList;
+import muttlab.matrix.Matrix;
+import muttlab.operator.FileCommand;
+
+/**
+ *
+ * @author bens
+ */
+public class Maximalfile extends FileCommand {
+
+    static{ NAME = "Maximal"; }
+    
+    public Maximalfile() {
+    }
+
+    @Override
+    public Matrix execute(Deque<Matrix> vector, String toggle) {
+        if(toggle.equals("maxRad")){
+            List<Matrix> collect = vector.stream()
+                    .filter((Matrix v) -> v.isVector())
+                    .sorted(comparing((Matrix v) -> v.getMax()).reversed())
+                    .limit(1)
+                    .collect(toList());
+            
+            return collect.get(0);
+        } else {
+            List<Matrix> collect = vector.stream()
+                    .filter((Matrix v) -> v.isVector())
+                    .sorted(comparing((Matrix v) -> v.getMax()))
+                    .limit(1)
+                    .collect(toList());
+            
+            return collect.get(0);
+        }
+    }
+
+    @Override
+    public void CreateSavefile(File vectors, float n) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+}

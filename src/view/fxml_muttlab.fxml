@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" alignment="CENTER" prefWidth="500" prefHeight="300" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="view.FXMLMuttLabController">
+    <Label style="-fx-font: Bold 20 Tahoma;" text="MuttLab">
+    </Label>
+    <BorderPane>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+        </padding>
+        <top>
+            <HBox spacing="5.0" alignment="CENTER">
+                <padding>
+                    <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+                </padding>
+            </HBox>
+        </top>
+        
+        <center>
+            <VBox fx:id="textFields" spacing="3" alignment="CENTER">
+                <padding>
+                    <Insets bottom="5.0" right="5.0" />
+                </padding>
+                <TextField fx:id="inputText" editable="TRUE" style="-fx-font: NORMAL 10 Tahoma;" promptText="Input: e.g. 1 2 = [ 1 2]">
+                </TextField>
+                <TextArea fx:id="outputText" prefHeight="100" editable="FALSE" style="-fx-font: NORMAL 10 Tahoma;" promptText="Matrix Stack!">
+                </TextArea>
+                <Button fx:id="fileButton" alignment="CENTER" prefWidth="50" style="-fx-font: NORMAL 10 Tahoma;" text="File" onAction="#handleFile">
+                </Button>
+                <Label fx:id="fileName" alignment="CENTER" prefWidth="50" style="-fx-font: NORMAL 10 Tahoma;" text="File">
+                </Label>
+            </VBox>
+        </center>
+        
+        <left>
+            <VBox spacing="3" alignment="CENTER">
+                <HBox>
+                    <padding>
+                        <Insets bottom="5.0"/>
+                    </padding>
+                    <VBox fx:id="fileCommands" alignment="CENTER" spacing="3">
+                        <padding>
+                            <Insets bottom="5.0" right="5.0" />
+                        </padding>
+                    </VBox>
+                    <VBox alignment="CENTER" spacing="3">
+                        <padding>
+                            <Insets bottom="5.0" right="5.0" />
+                        </padding>
+                        <fx:define>
+                            <ToggleGroup fx:id="mmGroup"></ToggleGroup>
+                        </fx:define>
+                        <children>
+                            <RadioButton fx:id="maxRad" selected="false" text="Max" style="-fx-font: NORMAL 10 Tahoma;" toggleGroup="$mmGroup"></RadioButton>
+                            <RadioButton fx:id="minRad" selected="false" text="Min" style="-fx-font: NORMAL 10 Tahoma;" toggleGroup="$mmGroup"></RadioButton>
+                        </children>
+                    </VBox>
+                </HBox>
+                <HBox>
+                    <VBox fx:id="fileOperators" alignment="CENTER" spacing="3">
+                        <padding>
+                            <Insets bottom="5.0" right="5.0" />
+                        </padding>
+                    </VBox>
+                    <VBox alignment="CENTER" spacing="3">
+                        <padding>
+                            <Insets bottom="5.0" right="5.0" />
+                        </padding>
+                        <fx:define>
+                            <ToggleGroup fx:id="ruleGroup"></ToggleGroup>
+                        </fx:define>
+                        <children>
+                            <RadioButton fx:id="firstMat" selected="false" text="1st V" style="-fx-font: NORMAL 10 Tahoma;" toggleGroup="$ruleGroup"></RadioButton>
+                            <RadioButton fx:id="padLeft" selected="false" text="Pad L" style="-fx-font: NORMAL 10 Tahoma;" toggleGroup="$ruleGroup"></RadioButton>
+                            <RadioButton fx:id="padRight" selected="false" text="Pad R" style="-fx-font: NORMAL 10 Tahoma;" toggleGroup="$ruleGroup"></RadioButton>
+                        </children>
+                    </VBox>
+                </HBox>
+                <HBox>
+                    <padding>
+                        <Insets bottom="5.0"/>
+                    </padding>
+                    <VBox fx:id="createOperators" alignment="CENTER" spacing="3">
+                        <padding>
+                            <Insets bottom="5.0" right="5.0" />
+                        </padding>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </left>
+        
+        <bottom>
+            <HBox fx:id="commands" spacing="3" alignment="BASELINE_RIGHT">
+                    <padding>
+                        <Insets bottom="5.0" right="10.0" />
+                    </padding>
+            </HBox>
+        </bottom>
+        
+    </BorderPane>
+</VBox>
+
